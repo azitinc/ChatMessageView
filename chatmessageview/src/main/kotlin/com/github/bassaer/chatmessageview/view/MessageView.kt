@@ -220,6 +220,30 @@ class MessageView : ListView, View.OnFocusChangeListener {
         messageAdapter.setLeftMessageTextColor(color)
     }
 
+    fun setPictureWidth(width: Int) {
+        messageAdapter.setPictureWidth(width)
+    }
+
+    fun setLeftPictureWidth(width: Int) {
+        messageAdapter.setLeftPictureWidth(width)
+    }
+
+    fun setRightPictureWidth(width: Int) {
+        messageAdapter.setRightPictureWidth(width)
+    }
+
+    fun setPictureHeight(height: Int) {
+        messageAdapter.setPictureHeight(height)
+    }
+
+    fun setLeftPictureHeight(height: Int) {
+        messageAdapter.setPictureHeight(height)
+    }
+
+    fun setRightPictureHeight(height: Int) {
+        messageAdapter.setPictureHeight(height)
+    }
+
     fun setOnBubbleClickListener(listener: Message.OnBubbleClickListener) {
         messageAdapter.setOnBubbleClickListener(listener)
     }

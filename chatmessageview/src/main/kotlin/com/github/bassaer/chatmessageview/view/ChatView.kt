@@ -217,6 +217,30 @@ class ChatView : LinearLayout {
         messageView.setLeftMessageTextColor(color)
     }
 
+    fun setPictureWidth(width: Int) {
+        messageView.setPictureWidth(width)
+    }
+
+    fun setLeftPictureWidth(width: Int) {
+        messageView.setLeftPictureWidth(width)
+    }
+
+    fun setRightPictureWidth(width: Int) {
+        messageView.setRightPictureWidth(width)
+    }
+
+    fun setPictureHeight(height: Int) {
+        messageView.setPictureHeight(height)
+    }
+
+    fun setLeftPictureHeight(height: Int) {
+        messageView.setLeftPictureWidth(height)
+    }
+
+    fun setRightPictureHeight(height: Int) {
+        messageView.setRightPictureHeight(height)
+    }
+
     /**
      * Auto Scroll when message received.
      * @param enable Whether auto scroll is enable or not
@@ -295,6 +319,9 @@ class ChatView : LinearLayout {
 
     fun setDateSeparatorFontSize(size: Float) {
         messageView.setDateSeparatorFontSize(size)
+    }
+
+    fun setPictureWidth(widthDp: Float) {
     }
 
     fun getMessageView(): MessageView = messageView

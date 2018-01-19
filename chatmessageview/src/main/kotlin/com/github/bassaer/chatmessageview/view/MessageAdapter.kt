@@ -21,6 +21,9 @@ import com.github.bassaer.chatmessageview.models.Attribute
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.date_cell.view.*
 import java.util.*
+import android.util.DisplayMetrics
+
+
 
 
 /**
@@ -44,6 +47,11 @@ class MessageAdapter(context: Context, resource: Int, private val objects: List<
     private var leftBubbleColor: Int = 0
     private var rightBubbleColor: Int = 0
     private var statusColor = ContextCompat.getColor(getContext(), R.color.blueGray500)
+
+    private var leftPictureWidth: Int = getContext().resources.getDimensionPixelSize(R.dimen.width_normal)
+    private var leftPictureHeight: Int = getContext().resources.getDimensionPixelSize(R.dimen.width_normal)
+    private var rightPictureWidth: Int = getContext().resources.getDimensionPixelSize(R.dimen.width_normal)
+    private var rightPictureHeight: Int = getContext().resources.getDimensionPixelSize(R.dimen.width_normal)
     /**
      * Default message item margin top
      */
@@ -186,6 +194,17 @@ class MessageAdapter(context: Context, resource: Int, private val objects: List<
                             messageViewHolder.mainMessageContainer).let {
                         messageViewHolder.messagePicture = it.findViewById(R.id.message_picture)
                         messageViewHolder.messagePicture?.setImageBitmap(message.picture)
+                        if (message.isRightMessage) {
+                            it.findViewById<FrameLayout>(R.id.right_message_picture_wrapper).layoutParams?.apply {
+                                width = rightPictureWidth
+                                height = rightPictureHeight
+                            }
+                        } else {
+                            messageViewHolder.messagePicture?.layoutParams?.apply {
+                                width = leftPictureWidth
+                                height = leftPictureHeight
+                            }
+                        }
                     }
 
                 }
@@ -349,6 +368,32 @@ class MessageAdapter(context: Context, resource: Int, private val objects: List<
         notifyDataSetChanged()
     }
 
+    fun setPictureWidth(width: Int) {
+        leftPictureWidth = width
+        rightPictureWidth = width
+    }
+
+    fun setLeftPictureWidth(width: Int) {
+        leftPictureWidth = width
+    }
+
+    fun setRightPictureWidth(width: Int) {
+        rightPictureWidth = width
+    }
+
+    fun setPictureHeight(height: Int) {
+        leftPictureHeight = height
+        rightPictureHeight = height
+    }
+
+    fun setLeftPictureHeight(height: Int) {
+        leftPictureHeight = height
+    }
+
+    fun setRightPictureHeight(height: Int) {
+        rightPictureHeight = height
+    }
+
     fun setAttribute(attribute: Attribute) {
         this.attribute = attribute
         notifyDataSetChanged()
@@ -373,6 +418,4 @@ class MessageAdapter(context: Context, resource: Int, private val objects: List<
     internal inner class DateViewHolder {
         var dateLabelText: TextView? = null
     }
-
-
 }
