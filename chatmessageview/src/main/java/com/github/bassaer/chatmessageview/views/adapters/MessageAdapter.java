@@ -17,9 +17,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.bassaer.chatmessageview.R;
+import com.github.bassaer.chatmessageview.model.IChatUser;
 import com.github.bassaer.chatmessageview.models.Attribute;
 import com.github.bassaer.chatmessageview.models.Message;
-import com.github.bassaer.chatmessageview.model.IChatUser;
 import com.github.bassaer.chatmessageview.views.RoundImageView;
 
 import java.util.ArrayList;
@@ -51,6 +51,12 @@ public class MessageAdapter extends ArrayAdapter<Object> {
     private int mLeftBubbleColor;
     private int mRightBubbleColor;
     private int mStatusColor = ContextCompat.getColor(getContext(), R.color.blueGray500);
+
+    private int mLeftPictureWidth = getContext().getResources().getDimensionPixelSize(R.dimen.width_normal);
+    private int mLeftPictureHeight = getContext().getResources().getDimensionPixelSize(R.dimen.width_normal);
+    private int mRightPictureWidth = getContext().getResources().getDimensionPixelSize(R.dimen.width_normal);
+    private int mRightPictureHeight = getContext().getResources().getDimensionPixelSize(R.dimen.width_normal);
+
     /**
      * Default message item margin top
      */
@@ -191,6 +197,14 @@ public class MessageAdapter extends ArrayAdapter<Object> {
                         View pictureBubble = mLayoutInflater.inflate(R.layout.message_picture_right, holder.mainMessageContainer);
                         holder.messagePicture = pictureBubble.findViewById(R.id.message_picture);
                         holder.messagePicture.setImageBitmap(message.getPicture());
+                        ViewGroup.LayoutParams params = holder.mainMessageContainer.findViewById(R.id.right_message_picture_wrapper).getLayoutParams();
+                        if (message.isRightMessage()) {
+                            params.width = mRightPictureWidth;
+                            params.height = mRightPictureHeight;
+                        } else {
+                            params.width = mLeftPictureWidth;
+                            params.height = mLeftPictureHeight;
+                        }
                         break;
                     case LINK:
                         //Set text
@@ -465,6 +479,32 @@ public class MessageAdapter extends ArrayAdapter<Object> {
     public void setStatusColor(int statusTextColor) {
         mStatusColor = statusTextColor;
         notifyDataSetChanged();
+    }
+
+    public void setPictureWidth(int width) {
+        mLeftPictureWidth = width;
+        mRightPictureWidth = width;
+    }
+
+    public void setLeftPictureWidth(int width) {
+        mLeftPictureWidth = width;
+    }
+
+    public void setRightPictureWidth(int width) {
+        mRightPictureWidth = width;
+    }
+
+    public void setPictureHeight(int height) {
+        mLeftPictureHeight = height;
+        mRightPictureHeight = height;
+    }
+
+    public void setLeftPictureHeight(int height) {
+        mLeftPictureHeight = height;
+    }
+
+    public void setRightPictureHeight(int height) {
+        mRightPictureHeight = height;
     }
 
     public void setAttribute(Attribute attribute) {

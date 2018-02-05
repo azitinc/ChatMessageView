@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="@dimen/width_normal"
     android:layout_height="@dimen/width_normal"
+    android:id="@+id/right_message_picture_wrapper"
     android:background="@android:color/transparent">
     <com.github.bassaer.chatmessageview.views.RoundImageView
         android:id="@+id/message_picture"

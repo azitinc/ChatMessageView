@@ -317,4 +317,29 @@ public class MessageView extends ListView implements View.OnFocusChangeListener{
     public List<Message> getMessageList() {
         return mMessageList;
     }
+
+    public void setPictureWidth(int width) {
+        mMessageAdapter.setPictureWidth(width);
+    }
+
+    public void setLeftPictureWidth(int width) {
+        mMessageAdapter.setLeftPictureWidth(width);
+    }
+
+    public void setRightPictureWidth(int width) {
+        mMessageAdapter.setRightPictureWidth(width);
+    }
+
+    public void setPictureHeight(int height) {
+        mMessageAdapter.setPictureHeight(height);
+    }
+
+    public void setLeftPictureHeight(int height) {
+        mMessageAdapter.setLeftPictureHeight(height);
+    }
+
+    public void setRightPictureHeight(int height) {
+        mMessageAdapter.setRightPictureHeight(height);
+    }
+
 }

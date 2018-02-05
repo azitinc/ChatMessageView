@@ -339,4 +339,30 @@ public class ChatView extends LinearLayout {
         mMessageView.setDateSeparatorFontSize(size);
     }
 
+    public void setPictureWidth(int width) {
+        mMessageView.setPictureWidth(width);
+    }
+
+    public void setLeftPictureWidth(int width) {
+        mMessageView.setLeftPictureWidth(width);
+    }
+
+    public void setRightPictureWidth(int width) {
+        mMessageView.setRightPictureWidth(width);
+    }
+
+    public void setPictureHeight(int height) {
+        mMessageView.setPictureHeight(height);
+    }
+
+    public void setLeftPictureHeight(int height) {
+        mMessageView.setLeftPictureHeight(height);
+    }
+
+    public void setRightPictureHeight(int height) {
+        mMessageView.setRightPictureHeight(height);
+    }
+
+    public void setPictureWidth(float widthDp) {
+    }
 }

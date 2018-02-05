@@ -62,7 +62,10 @@ public class MessengerActivity extends Activity {
     protected static final String INPUT_TEXT_HINT = "New message..";
     @VisibleForTesting
     protected static final int MESSAGE_MARGIN = 5;
-
+    @VisibleForTesting
+    protected static final int PICTURE_WIDTH_DP = 200;
+    @VisibleForTesting
+    protected static final int PICTURE_HEIGHT_DP = 200;
     private ChatView mChatView;
     private MessageList mMessageList;
     private ArrayList<User> mUsers;
@@ -99,6 +102,8 @@ public class MessengerActivity extends Activity {
         mChatView.setInputTextHint(INPUT_TEXT_HINT);
         mChatView.setMessageMarginTop(MESSAGE_MARGIN);
         mChatView.setMessageMarginBottom(MESSAGE_MARGIN);
+        mChatView.setPictureWidth((int)(PICTURE_WIDTH_DP * this.getResources().getDisplayMetrics().density + 0.5f));
+        mChatView.setPictureHeight((int)(PICTURE_HEIGHT_DP * this.getResources().getDisplayMetrics().density + 0.5f));
         mChatView.setMaxInputLine(5);
         mChatView.setUsernameFontSize(getResources().getDimension(R.dimen.font_small));
 
