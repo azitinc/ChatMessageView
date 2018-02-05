@@ -194,14 +194,17 @@ public class MessageAdapter extends ArrayAdapter<Object> {
                 switch (message.getType()) {
                     case PICTURE:
                         //Set picture
-                        View pictureBubble = mLayoutInflater.inflate(R.layout.message_picture_right, holder.mainMessageContainer);
-                        holder.messagePicture = pictureBubble.findViewById(R.id.message_picture);
-                        holder.messagePicture.setImageBitmap(message.getPicture());
                         if (message.isRightMessage()) {
+                            View pictureBubble = mLayoutInflater.inflate(R.layout.message_picture_right, holder.mainMessageContainer);
+                            holder.messagePicture = pictureBubble.findViewById(R.id.message_picture);
+                            holder.messagePicture.setImageBitmap(message.getPicture());
                             ViewGroup.LayoutParams params = holder.mainMessageContainer.findViewById(R.id.right_message_picture_wrapper).getLayoutParams();
                             params.width = mRightPictureWidth;
                             params.height = mRightPictureHeight;
                         } else {
+                            View pictureBubble = mLayoutInflater.inflate(R.layout.message_picture_left, holder.mainMessageContainer);
+                            holder.messagePicture = pictureBubble.findViewById(R.id.message_picture);
+                            holder.messagePicture.setImageBitmap(message.getPicture());
                             ViewGroup.LayoutParams params = holder.mainMessageContainer.findViewById(R.id.left_message_picture_wrapper).getLayoutParams();
                             params.width = mLeftPictureWidth;
                             params.height = mLeftPictureHeight;
