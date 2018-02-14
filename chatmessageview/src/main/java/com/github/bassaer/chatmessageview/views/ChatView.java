@@ -202,6 +202,10 @@ public class ChatView extends LinearLayout {
         setSendButtonColor(mSendIconColor);
     }
 
+    public void setSendIconResource(int resId) {
+        mSendButton.setImageResource(resId);
+    }
+
     public void setOptionIcon(int resId) {
         mOptionIconId = resId;
         setOptionButtonColor(mOptionIconColor);
